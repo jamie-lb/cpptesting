@@ -13,10 +13,9 @@ void PrintNodeValue(int);
 
 int main() {
   ListNode *head = NULL;
-  int input = 1;
-  while (cin >> input && input > 0) {
+  for (int i = 1; i <= 10; i++) {
     ListNode *current = new ListNode;
-    current->data = input;
+    current->data = i;
     current->next = head;
     head = current;
   }
@@ -28,10 +27,10 @@ int main() {
   return 0;
 }
 
-void PrintList(ListNode* list) {
-  if (list != NULL) {
-    PrintNodeValue(list->data);
-    PrintList(list->next);
+void PrintList(ListNode *node) {
+  if (node != NULL) {
+    PrintNodeValue(node->data);
+    PrintList(node->next);
   }
 }
 
@@ -39,10 +38,10 @@ void PrintNodeValue(int value) {
     cout << "Node value: " << value << endl;
 }
 
-void PrintRev(ListNode* list) {
-  if (list != NULL) {
-    PrintRev(list->next);
-    PrintNodeValue(list->data);
+void PrintRev(ListNode *node) {
+  if (node != NULL) {
+    PrintRev(node->next);
+    PrintNodeValue(node->data);
   }
 }
 
